@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <style>
+        *{
+           box-sizing: border-box;
+           margin: 0px;
+           padding:0px ; 
+        }
+        body{
+            width: 100%;
+            height: 100vh;
+            background-color: #ccc;
+            font-family: sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container{
+            width: 350px;
+            height: 410px;
+            padding: 30px;
+            background-color: #fff;
+            box-shadow: 0px 0px 20px 0px #000000a0;
+            display: flex;
+            flex-direction: column;
+        }
+        h2{
+            flex-basis: 10%;
+            text-align: center;
+            font-weight: 900;
+            color: rgb(16, 204, 16);
+        }
+        .imageBlock{
+            flex-basis: 55%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .content{
+            flex-basis: 35%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        #inpVal{
+            width: 100%;
+            height: 30px;
+            padding: 0px 20px;
+            font-size: 18px;
+            outline: none;
+            margin-bottom: 20px;
+        }
+        #btn{
+            width: 100%;
+            padding: 8px 10px;
+            border: none;
+            background-color: rgb(16, 204, 16);
+            color: #fff;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        #btn:hover{
+            background-color: #fff;
+            color: rgb(16, 204, 16);
+            border: 1px solid rgb(16, 204, 16);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h2>QR CODE</h2>
+        <div class="imageBlock">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAwezRRmbnUqJh9gH3bwbnIJjt7l5nCj21sA&s" alt="" id="image">
+        </div>
+        <div class="content">
+            <input type="text" placeholder="enter content here..." id="inpVal">
+            <button id="btn">Generate QR Code</button>
+        </div>
+    </div>
+
+    <script>
+        //! https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=SaiKumar
+let image =document.getElementById("image");
+let inpVal =document.getElementById("inpVal");
+let btn =document.getElementById("btn");
+
+btn.addEventListener("click",e=>{
+    let result = inpVal.value;
+    console.log(result);
+    let linkQR = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=";
+    image.src=linkQR +result
+})
+
+
+    </script>
+</body>
+</html>
